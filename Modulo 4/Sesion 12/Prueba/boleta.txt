@@ -1,0 +1,7 @@
+---- Boleta de compra ----
+
+Total cancelado: $1500
+El detalle de su compra es: 
+Productos{nombre='Hojas de Oficio', precio=1500, codigo='aa2'}
+
+Gracias por preferirnos
