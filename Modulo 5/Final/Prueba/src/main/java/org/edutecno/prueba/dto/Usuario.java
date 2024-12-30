@@ -2,6 +2,8 @@ package org.edutecno.prueba.dto;
 
 
 import java.sql.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Usuario {
     private int id;
@@ -23,6 +25,28 @@ public class Usuario {
     }
 
     public Usuario() {
+    }
+
+    public String obtenerAnimal() {
+        int anio = this.fechaNacimiento.toLocalDate().getYear();
+        int resto = anio % 12;
+
+        // Mapa de animales del horóscopo chino
+        Map<Integer, String> horoscopoMap = new HashMap<>();
+        horoscopoMap.put(0, "Mono");
+        horoscopoMap.put(1, "Gallo");
+        horoscopoMap.put(2, "Perro");
+        horoscopoMap.put(3, "Cerdo");
+        horoscopoMap.put(4, "Rata");
+        horoscopoMap.put(5, "Buey");
+        horoscopoMap.put(6, "Tigre");
+        horoscopoMap.put(7, "Conejo");
+        horoscopoMap.put(8, "Dragon");
+        horoscopoMap.put(9, "Serpiente");
+        horoscopoMap.put(10, "Caballo");
+        horoscopoMap.put(11, "Cabra");
+
+        return horoscopoMap.get(resto);
     }
 
     public int getId() {

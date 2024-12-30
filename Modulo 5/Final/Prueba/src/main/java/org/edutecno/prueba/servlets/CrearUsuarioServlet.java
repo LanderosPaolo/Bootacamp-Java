@@ -19,10 +19,11 @@ public class CrearUsuarioServlet extends HttpServlet {
         String username = request.getParameter("username");
         String correo = request.getParameter("correo");
         String fechaNacimiento = request.getParameter("nacimiento");
-        String password = request.getParameter("password");
-        String password2 = request.getParameter("password2");
+        String pass = request.getParameter("pass");
+        String pass2 = request.getParameter("pass2");
 
-        if(!password.equals(password2)) {
+        if(pass == null || pass2 == null || !pass.equals(pass2)) {
+            request.setAttribute("error", "Las contraseñas no coinciden o están vacías.");
             request.getRequestDispatcher("registro.jsp").forward(request, response);
             return;
         }
@@ -32,9 +33,16 @@ public class CrearUsuarioServlet extends HttpServlet {
         usuario.setUsername(username);
         usuario.setEmail(correo);
         usuario.setFechaNacimiento(java.sql.Date.valueOf(fechaNacimiento));
-        usuario.setPassword(password);
+        usuario.setPassword(pass);
 
-        UsuarioDao usuarioDAO = new UsuarioDaoImpl();
-        boolean exito = usuarioDAO.registrarUsuario(usuario);
+        UsuarioDao usuarioDao = new UsuarioDaoImpl();
+        usuario = usuarioDao.obtenerAnimal(usuario);
+        boolean exito = usuarioDao.registrarUsuario(usuario);
+
+        if(exito) {
+            response.sendRedirect("login.jsp");
+        } else {
+            request.getRequestDispatcher("registro.jsp").forward(request, response);
+        }
     }
 }

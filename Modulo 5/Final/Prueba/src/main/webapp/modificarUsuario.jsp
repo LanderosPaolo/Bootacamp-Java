@@ -1,7 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    if (session.getAttribute("usuario") == null) {
+        response.sendRedirect("login.jsp");
+    }
+%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Modificar Usuario</title>
 </head>
 <body>
 <h1>Modificar Usuario</h1>
@@ -15,7 +20,7 @@
     <input type="text" name="username" id="username" value="${usuario.username}">
 
     <label for="correo">Correo Electrónico:</label>
-    <input type="email" name="correo" id="correo" value="${usuario.correo}">
+    <input type="email" name="correo" id="correo" value="${usuario.email}">
 
     <label for="nacimiento">Fecha de nacimiento:</label>
     <input type="date" name="nacimiento" id="nacimiento" value="${usuario.fechaNacimiento}">
@@ -25,5 +30,8 @@
 
     <button type="submit">Actualizar</button>
 </form>
+
+<a href="menuPrincipal.jsp">Volver</a>
 </body>
 </html>
+

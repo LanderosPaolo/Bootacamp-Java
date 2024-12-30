@@ -5,15 +5,17 @@
         response.sendRedirect("login.jsp");
     }
 %>
+
 <html>
 <head>
-    <title>Lista de Usuarios</title>
+    <title>Consulta Horóscopo Chino</title>
 </head>
 <body>
-<h2>Lista de Usuarios</h2>
-<c:forEach var="usuario" items="${usuarios}">
-    <p>ID: ${usuario.id} - Nombre: ${usuario.nombre} - Username: ${usuario.username} - Email: ${usuario.email}</p>
-</c:forEach>
+<h2>Consulta tu Horóscopo Chino</h2>
+
+<c:if test="${not empty animal}">
+    <p>Tu animal del horóscopo chino es: ${animal}</p>
+</c:if>
 
 <a href="menuPrincipal.jsp">Volver</a>
 </body>

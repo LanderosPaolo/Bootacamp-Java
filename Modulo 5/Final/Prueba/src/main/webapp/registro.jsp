@@ -26,5 +26,7 @@
 
         <button type="submit">Registrarse</button>
     </form>
+
+    <a href="menuPrincipal.jsp">Volver</a>
 </body>
 </html>

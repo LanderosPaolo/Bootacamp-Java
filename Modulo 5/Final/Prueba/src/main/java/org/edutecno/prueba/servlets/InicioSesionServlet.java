@@ -7,10 +7,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.edutecno.prueba.service.UsuarioService;
+import org.edutecno.prueba.dto.Usuario;
 
 import java.io.IOException;
 
-@WebServlet("/inicio_sesion")
+@WebServlet("/inicioSesion")
 public class InicioSesionServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -19,10 +20,14 @@ public class InicioSesionServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        if(service.validarUsuario(username, password)){
+        if (service.validarUsuario(username, password)) {
+
+            Usuario usuario = service.obtenerUsuarioPorUsername(username);
+
             HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            session.setAttribute("password", password);
+            session.setAttribute("usuario", usuario);
+
+            response.sendRedirect("menuPrincipal.jsp");
         } else {
             response.sendRedirect("login.jsp");
         }
