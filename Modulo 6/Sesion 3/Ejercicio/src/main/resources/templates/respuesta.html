@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Respuesta</title>
+</head>
+<body>
+    <h1>Informacion del usuario</h1>
+    <p>Nombre: <b><span th:text="${usuario.nombre}"></span></b></p>
+    <p>Apellido: <b><span th:text="${usuario.apellido}"></span></b></p>
+    <p>Username: <b><span th:text="${usuario.username}"></span></b></p>
+    <p>Password: <b><span th:text="${usuario.password}"></span></b></p>
+    <p>Email: <b><span th:text="${usuario.email}"></span></b></p>
+</body>
+</html>
