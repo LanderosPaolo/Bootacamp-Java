@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Lista de Personas</h1>
+<ul>
+    <li th:each="persona : ${personas}">
+        [[${persona.nombres}]] [[${persona.apellidos}]] - [[${persona.rut}]]
+    </li>
+</ul>
+<a href="/form">Agregar nueva Persona</a>
+</body>
+</html>

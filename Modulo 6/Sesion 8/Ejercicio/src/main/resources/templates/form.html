@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/enviar}" th:object="${persona}" method="post">
+    <label for="rut">RUT:</label>
+    <input type="text" id="rut" th:field="*{rut}" />
+
+    <label for="nombres">Nombres:</label>
+    <input type="text" id="nombres" th:field="*{nombres}" />
+
+    <label for="apellidos">Apellidos:</label>
+    <input type="text" id="apellidos" th:field="*{apellidos}" />
+
+    <label for="fecha">Fecha:</label>
+    <input type="text" id="fecha" th:field="*{fecha}" />
+
+    <h2>Dirección</h2>
+    <label for="calle">Calle:</label>
+    <input type="text" id="calle" th:field="*{direccion.calle}" />
+
+    <label for="comuna">Comuna:</label>
+    <input type="text" id="comuna" th:field="*{direccion.comuna}" />
+
+    <label for="region">Región:</label>
+    <input type="text" id="region" th:field="*{direccion.region}" />
+
+    <button type="submit">Enviar</button>
+</form>
+</body>
+</html>
