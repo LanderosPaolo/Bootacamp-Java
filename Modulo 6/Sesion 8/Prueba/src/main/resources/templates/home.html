@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>To-Do List</h1>
+<form action="/add" method="post">
+  <input type="text" name="mensaje" placeholder="¿Tarea nueva? Escríbela">
+  <button type="submit">Ingresar</button>
+</form>
+<h2>Hoy día necesitas cumplir las siguientes tareas:</h2>
+<ul>
+  <li th:each="tarea : ${tareasIncompletas}">
+    <span th:text="${tarea.mensaje}"></span>
+    <form action="/done" method="post" style="display:inline;">
+      <input type="hidden" name="id" th:value="${tarea.id}">
+      <button type="submit">Completar</button>
+    </form>
+  </li>
+</ul>
+<h2>Última tarea cumplida:</h2>
+<span th:if="${tareasCompletadas.size() > 0}" th:text="${tareasCompletadas.get(0).mensaje}"></span>
+</body>
+</html>
