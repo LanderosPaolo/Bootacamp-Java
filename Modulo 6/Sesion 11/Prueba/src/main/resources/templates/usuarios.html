@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Crear Nuevo Usuario</h1>
+<form action="/usuarios/agregar" method="post">
+    <input type="text" name="nombre" placeholder="Nombre de usuario" required />
+    <input type="password" name="contraseña" placeholder="Contraseña" required />
+    <button type="submit">Crear</button>
+</form>
+</body>
+</html>

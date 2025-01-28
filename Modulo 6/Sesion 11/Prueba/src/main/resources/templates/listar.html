@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Lista de Medicamentos</h1>
+<form action="/medicamentos/agregar" method="post">
+  <input type="text" name="nombreMedicamento" placeholder="Nombre del medicamento" required />
+  <input type="number" step="0.01" name="precio" placeholder="Precio" required />
+  <button type="submit">Agregar</button>
+</form>
+<ul>
+  <li th:each="medicamento : ${medicamentos}">
+    <span th:text="${medicamento.nombreMedicamento}"></span> -
+    <span th:text="${medicamento.precio}"></span>
+  </li>
+</ul>
+</body>
+</html>
