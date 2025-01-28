@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Crear Currículum</h1>
+<form th:action="@{/save}" th:object="${curriculum}" method="post">
+  <label>Nombre:</label>
+  <input type="text" th:field="*{nombre}" />
+  <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+
+  <label>Apellido:</label>
+  <input type="text" th:field="*{apellido}" />
+  <div th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+
+  <label>Fecha de Nacimiento:</label>
+  <input type="date" th:field="*{fecha}" />
+  <div th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></div>
+
+  <label>Edad:</label>
+  <input type="number" th:field="*{edad}" />
+  <div th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></div>
+
+  <label>Email:</label>
+  <input type="email" th:field="*{email}" />
+  <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+  <label>Teléfono:</label>
+  <input type="text" th:field="*{numero}" />
+  <div th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></div>
+
+  <button type="submit">Guardar</button>
+</form>
+
+<p th:if="${mensaje}">[[${mensaje}]]</p>
+<p>Email: [[${email}]]</p>
+<p>Número: [[${numero}]]</p>
+</body>
+</html>
