@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Emitir Cheque</h1>
+<form th:action="@{/add}" th:object="${cheque}" method="post">
+    <label for="fecha">Fecha:</label>
+    <input type="text" id="fecha" th:field="*{fecha}" placeholder="yyyy-MM-dd">
+    <div th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></div>
+
+    <label for="destinatario">Destinatario:</label>
+    <input type="text" id="destinatario" th:field="*{destinatario}">
+    <div th:if="${#fields.hasErrors('destinatario')}" th:errors="*{destinatario}"></div>
+
+    <label for="monto">Monto:</label>
+    <input type="text" id="monto" th:field="*{monto}">
+    <div th:if="${#fields.hasErrors('monto')}" th:errors="*{monto}"></div>
+
+    <label for="firma">Firma:</label>
+    <input type="text" id="firma" th:field="*{firma}">
+    <div th:if="${#fields.hasErrors('firma')}" th:errors="*{firma}"></div>
+
+    <button type="submit">Guardar</button>
+</form>
+<div th:if="${mensaje}">
+    <p th:text="${mensaje}"></p>
+    <p>Destinatario: <span th:text="${destinatario}"></span></p>
+    <p>Fecha: <span th:text="${fecha}"></span></p>
+    <p>Monto: <span th:text="${monto}"></span></p>
+</div>
+</body>
+</html>
